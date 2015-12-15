@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th> Item.human_attribute_name[:name] </th>
+    <th> Item.human_attribute_name[:description] </th>
+    <th> Item.human_attribute_name[:category_id] </th>
+    <th> Item.human_attribute_name[:price] </th>
+    <th> Item.human_attribute_name[:in_stock_now] </th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <td> <%= item.name %> </td>
+      <td> <%= item.description %> </td>
+      <td> <%= item.category_id %> </td>
+      <td> <%= item.price %> </td>
+      <td> <%= item.in_stock_now %> </td>
+    </tr>
+  <% end %>
+</table>
