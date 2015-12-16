@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215140201) do
-
-  create_table "Order", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.date     "required_date"
-    t.integer  "created_by",    limit: 4
-    t.integer  "updated_by",    limit: 4
-    t.integer  "lock_version",  limit: 4, default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-  end
+ActiveRecord::Schema.define(version: 20151216015336) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -45,6 +35,25 @@ ActiveRecord::Schema.define(version: 20151215140201) do
     t.integer  "lock_version", limit: 4,     default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id",       limit: 4
+    t.date     "required_date"
+    t.integer  "created_by",    limit: 4
+    t.integer  "updated_by",    limit: 4
+    t.integer  "lock_version",  limit: 4,                  default: 0
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
+    t.decimal  "order_total",               precision: 10, default: 0
+    t.string   "items",         limit: 255,                default: "--- []\n"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string  "name",  limit: 255
+    t.integer "grade", limit: 4,   default: 0
+    t.integer "age",   limit: 4,   default: 0
+    t.string  "sex",   limit: 50,  default: "0"
   end
 
   create_table "users", force: :cascade do |t|

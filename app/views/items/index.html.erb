@@ -1,10 +1,10 @@
 <table>
   <tr>
-    <th> Item.human_attribute_name[:name] </th>
-    <th> Item.human_attribute_name[:description] </th>
-    <th> Item.human_attribute_name[:category_id] </th>
-    <th> Item.human_attribute_name[:price] </th>
-    <th> Item.human_attribute_name[:in_stock_now] </th>
+    <th><%= Item.human_attribute_name(:name) %></th>
+    <th><%= Item.human_attribute_name(:description) %></th>
+    <th><%= Item.human_attribute_name(:category_id) %></th>
+    <th><%= Item.human_attribute_name(:price) %></th>
+    <th><%= Item.human_attribute_name(:in_stock_now) %></th>
   </tr>
   <% @items.each do |item| %>
     <tr>
