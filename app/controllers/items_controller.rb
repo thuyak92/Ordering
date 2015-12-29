@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
+  load_and_authorize_resource
 
   def index
-    @items = Item.all
+    
   end
 
   def new
