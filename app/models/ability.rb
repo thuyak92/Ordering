@@ -2,20 +2,23 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new unless user.present?#guest user
+    user ||= User.new
     if (user.admin?)
+      Rails.logger.debug("ABILITY admin")
       can :magage, User
       can :manage, Item
       can :manage, Category
       can :read, Order
       can :destroy, Order
     elsif (user.user?)
+      Rails.logger.debug("ABILITY user")
       can :magage, User, :id => user.id
       can :read, Item
       can :read, Category
       can :create, Order
     else
-      can :read, Item
+      Rails.logger.debug("ABILITY guest")
+      can [:read, :update, :create, :destroy], Item
       can :read, Category
     end
     # Define abilities for the passed in user here. For example:

@@ -17,18 +17,20 @@
       </tr>
       <% @items.each do |item| %>
         <tr>
-          <td> <%= item.name %> </td>
+          <td> <%= link_to item.name, item_path(item) %> </td>
           <td> <%= item.description %> </td>
           <td> <%= item.category_id %> </td>
           <td> <%= item.price %> </td>
           <td> <%= item.in_stock_now %> </td>
+          <!-- <td><button class="btn btn-primary">Delete</button></td> -->
+          <td><%= button_to "Delete", item_path(item), :class => "btn btn-primary", :method => :delete %></td>
         </tr>
       <% end %>
     </table>
   
   </div>
 
-  <button class="btn btn-primary">test</button>
+  <%= button_to "Add Item", new_item_path, :class => "btn btn-primary", :method => :get %>
 </div>
 
 

@@ -1,34 +1,41 @@
 class ItemsController < ApplicationController
   load_and_authorize_resource
 
+
   def index
-    
   end
 
   def new
-    @item = Item.new
+    respond_to do |format|
+      format.html
+      format.json { render json: @item }
+    end
   end
 
   def create
-    @item = Item.new(item_params)
     @item.save
     redirect_to items_path
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.update(item_params)
+    if @item.present?
+      @item.update(item_params)
+    else 
+      @item.save
+    end
     redirect_to items_path
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  def custom
+    Rails.logger.debug("custom submit button")
   end
 
   private

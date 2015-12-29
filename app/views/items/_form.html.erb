@@ -1,0 +1,13 @@
+<%= form_for :@item, html: {class: "nifty_form"} do |f| %>
+  <div class="form_label"><%= f.label :name %></div>
+  <div class="form_value"><%= f.text_field :name %></div>
+  <div class="form_label"><%= f.label :description %></div>
+  <div class="form_value"><%= f.text_field :description %></div>
+  <div class="form_label"><%= f.label :category_id %></div>
+  <div class="form_value"><%= f.text_field :category_id %></div>
+  <div class="form_label"><%= f.label :price %></div>
+  <div class="form_value"><%= f.text_field :price %></div>
+  <div class="form_label"><%= f.label :in_stock_now %></div>
+  <div class="form_value"><%= f.number_field :in_stock_now %></div>
+  <%= f.submit "Save" %>
+<% end %>

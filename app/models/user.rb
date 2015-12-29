@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   ACCOUNT_TYPE_ADMIN = 1
   ACCOUNT_TYPE_USER  = 2
-
+  devise :database_authenticatable
   has_many :order
 
   def admin?

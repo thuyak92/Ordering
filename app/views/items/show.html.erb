@@ -1,0 +1,34 @@
+<div id="main-columnL">
+  <%= render 'main/navigation' %>
+</div>
+<div id="main-columnR">
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+    <div class="panel-heading">Items:</div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <td><%= Item.human_attribute_name(:id) %></td>
+        <td> <%= @item.id %> </td>
+        <td><%= Item.human_attribute_name(:name) %></td>
+        <td> <%= @item.name %> </td>
+      </tr>
+      <tr>
+        <td><%= Item.human_attribute_name(:description) %></td>
+        <td> <%= @item.description %> </td>
+        <td><%= Item.human_attribute_name(:category_id) %></td>
+        <td> <%= @item.category_id %> </td>
+      </tr>
+      <tr>
+        <td><%= Item.human_attribute_name(:price) %></td>
+        <td> <%= @item.price %> </td>
+        <td><%= Item.human_attribute_name(:in_stock_now) %></td>
+        <td> <%= @item.in_stock_now %> </td>
+      </tr>
+    </table>
+  
+  </div>
+  <%= button_to "Back", items_path, :class => "btn btn-primary", :method => :get %>
+  <%= button_to "Edit", edit_item_path(@item), :class => "btn btn-primary", :method => :get %>
+</div>
