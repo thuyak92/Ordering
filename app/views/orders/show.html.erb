@@ -1,0 +1,31 @@
+<b>Order Detail</b>
+<table>
+  <tr>
+    <td>Order ID</td>
+    <td><%= @order.id %></td>
+  </tr>
+  <tr>
+    <td>Client</td>
+    <td><%= @order.user.name %></td>
+  </tr>
+  <tr>
+    <td>Delivery Date</td>
+    <td><%= @order.required_date %></td>
+  </tr>
+  <tr>
+    <td>Order Cost</td>
+    <td><%= @order.order_total %></td>
+  </tr>
+  <tr>
+    <td>User</td>
+    <td><%= @order.user_id %></td>
+  </tr>
+</table>
+
+
+Items:<br/>
+<% @items.each do |item| %>
+<%= item.name %><br/>
+<%= item.description %><br/>
+<%= item.price %><br/><br/>
+<% end %>

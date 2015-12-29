@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 20151216015336) do
     t.integer  "created_by",    limit: 4
     t.integer  "updated_by",    limit: 4
     t.integer  "lock_version",  limit: 4,                  default: 0
-    t.datetime "created_at",                                                    null: false
-    t.datetime "updated_at",                                                    null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.decimal  "order_total",               precision: 10, default: 0
-    t.string   "items",         limit: 255,                default: "--- []\n"
+    t.string   "items",         limit: 255
   end
 
   create_table "schools", force: :cascade do |t|
