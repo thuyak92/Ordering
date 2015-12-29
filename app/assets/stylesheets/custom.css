@@ -1,0 +1,20 @@
+#main-columnL{
+  width:200px;
+  float:left;
+}
+#main-columnR{
+  width:1000px;
+  float:right;
+}
+.form_label{
+  float:left;
+  height: 25px;
+  width: 150px;
+  text-align: center;
+  background-color: #00ffff;
+  border-radius: 15px 15px 15px 15px;
+}
+.form_value{
+  margin-left: 200px;
+  height: 40px;
+}
