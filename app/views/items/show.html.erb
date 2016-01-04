@@ -1,5 +1,5 @@
 <div id="main-columnL">
-  <%= render 'main/navigation' %>
+  <%= render 'common/navigation' %>
 </div>
 <div id="main-columnR">
   <div class="panel panel-default">
@@ -29,6 +29,6 @@
     </table>
   
   </div>
-  <%= button_to "Back", items_path, :class => "btn btn-primary", :method => :get %>
-  <%= button_to "Edit", edit_item_path(@item), :class => "btn btn-primary", :method => :get %>
+  <%= button_to "Back", items_path, :class => "btn btn-primary btn-left col-xs-12 col-sm-1 col-sm-offset-0", :method => :get %>
+  <%= button_to "Edit", edit_item_path(@item), :class => "btn btn-primary col-xs-12 col-sm-1 col-sm-offset-1", :method => :get %>
 </div>

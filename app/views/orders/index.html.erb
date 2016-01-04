@@ -1,15 +1,31 @@
-<%= render "search" %>
-<table>
-  <tr>
-    <td>Order ID</td>
-    <td>Delivery Date</td>
-    <td>Order Cost</td>
-  </tr>
-  <% @orders.each do |order| %>
-    <tr>
-      <td><%= link_to order.id, order_path(order.id) %></td>
-      <td><%= order.required_date %></td>
-      <td><%= order.order_total %></td>
-    </tr>
-  <% end %>
-</table>
+
+<div id="main-columnL">
+  <%= render 'common/navigation' %>
+</div>
+<div id="main-columnR">
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+    <div class="panel-heading">Orders:</div>
+
+    <%= render "search" %>
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <td>Order ID</td>
+        <td>Delivery Date</td>
+        <td>Order Cost</td>
+      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.id, order_path(order.id) %></td>
+          <td><%= order.required_date %></td>
+          <td><%= order.order_total %></td>
+        </tr>
+      <% end %>
+    </table>
+  
+  </div>
+</div>
+
+
+
