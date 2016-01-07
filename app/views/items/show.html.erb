@@ -1,34 +1,29 @@
-<div id="main-columnL">
-  <%= render 'common/navigation' %>
-</div>
 <div id="main-columnR">
+  <h1 class="page-header">Item Detail</h1>
   <div class="panel panel-default">
-  <!-- Default panel contents -->
-    <div class="panel-heading">Items:</div>
-
     <!-- Table -->
     <table class="table">
       <tr>
-        <td><%= Item.human_attribute_name(:id) %></td>
+        <th><%= Item.human_attribute_name(:id) %></th>
         <td> <%= @item.id %> </td>
-        <td><%= Item.human_attribute_name(:name) %></td>
+        <th><%= Item.human_attribute_name(:name) %></th>
         <td> <%= @item.name %> </td>
       </tr>
       <tr>
-        <td><%= Item.human_attribute_name(:description) %></td>
+        <th><%= Item.human_attribute_name(:description) %></th>
         <td> <%= @item.description %> </td>
-        <td><%= Item.human_attribute_name(:category_id) %></td>
+        <th><%= Item.human_attribute_name(:category_id) %></th>
         <td> <%= @item.category_id %> </td>
       </tr>
       <tr>
-        <td><%= Item.human_attribute_name(:price) %></td>
+        <th><%= Item.human_attribute_name(:price) %></th>
         <td> <%= @item.price %> </td>
-        <td><%= Item.human_attribute_name(:in_stock_now) %></td>
+        <th><%= Item.human_attribute_name(:in_stock_now) %></th>
         <td> <%= @item.in_stock_now %> </td>
       </tr>
     </table>
   
   </div>
   <%= button_to "Back", items_path, :class => "btn btn-primary btn-left col-xs-12 col-sm-1 col-sm-offset-0", :method => :get %>
-  <%= button_to "Edit", edit_item_path(@item), :class => "btn btn-primary col-xs-12 col-sm-1 col-sm-offset-1", :method => :get %>
+  <%= button_to "Edit", edit_item_path(@item), :class => "btn btn-success col-xs-12 col-sm-1 col-sm-offset-1", :method => :get %>
 </div>

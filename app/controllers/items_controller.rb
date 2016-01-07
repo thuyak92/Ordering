@@ -13,11 +13,21 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item.save
-    redirect_to items_path
+    if @item.save
+      Rails.logger.debug("save item success")
+      redirect_to items_path
+    else
+      Rails.logger.debug("save item failure")
+      redirect_to new_item_path
+    end
+  end
+
+  def edit
+    
   end
 
   def show
+
   end
 
   def update
@@ -40,7 +50,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :category_id, :price)
+      params.require(:item).permit(:name, :description, :category_id, :price, :in_stock_now)
     end
 
 end

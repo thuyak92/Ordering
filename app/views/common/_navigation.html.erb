@@ -1,6 +1,6 @@
 <ul class="nav nav-pills nav-stacked">
-  <li><%= link_to "Order Manager", orders_path %></li>
-  <li><%= link_to "Items Manager", items_path %></li>
-  <li><%= link_to "Category Manager", categories_path %></li>
-  <li><%= link_to "User Manager", users_path if current_user.present? %></li>
+  <li class="<%= active_menu_resolver(:controllers => ['orders'], :actions => :all) %>"><%= link_to "Order Manager", orders_path %></li>
+  <li class="<%= active_menu_resolver(:controllers => ['categories'], :actions => :all) %>"><%= link_to "Category Manager", categories_path %></li>
+  <li class="<%= active_menu_resolver(:controllers => ['items'], :actions => :all) %>"><%= link_to "Items Manager", items_path %></li>
+  <li class="<%= active_menu_resolver(:controllers => ['users'], :actions => :all) %>"><%= link_to "User Manager", users_path if current_user.present? %></li>
 </ul>

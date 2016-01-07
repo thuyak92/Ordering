@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151229024618) do
+ActiveRecord::Schema.define(version: 20160107081935) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
     t.boolean  "has_sub_category"
     t.integer  "parent",           limit: 4
+    t.integer  "has_icon",         limit: 4,   default: 0
+    t.string   "image_url",        limit: 255
     t.integer  "created_by",       limit: 4
     t.integer  "updated_by",       limit: 4
     t.integer  "lock_version",     limit: 4,   default: 0
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 20151229024618) do
     t.string   "name",         limit: 255
     t.text     "description",  limit: 65535
     t.integer  "category_id",  limit: 4
+    t.integer  "has_image",    limit: 4,     default: 0
+    t.string   "image_url",    limit: 255
     t.float    "price",        limit: 24
     t.integer  "in_stock_now", limit: 4,     default: -1
     t.integer  "created_by",   limit: 4

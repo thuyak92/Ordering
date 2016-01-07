@@ -1,13 +1,53 @@
-<%= form_for :@item, html: {class: "nifty_form"} do |f| %>
-  <div class="form_label"><%= f.label :name %></div>
-  <div class="form_value"><%= f.text_field :name %></div>
-  <div class="form_label"><%= f.label :description %></div>
-  <div class="form_value"><%= f.text_field :description %></div>
-  <div class="form_label"><%= f.label :category_id %></div>
-  <div class="form_value"><%= f.text_field :category_id %></div>
-  <div class="form_label"><%= f.label :price %></div>
-  <div class="form_value"><%= f.text_field :price %></div>
-  <div class="form_label"><%= f.label :in_stock_now %></div>
-  <div class="form_value"><%= f.number_field :in_stock_now %></div>
-  <%= f.submit "Save" %>
+<% if @item.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= pluralize(@item.errors.count, "error") %> prohibited this app from being saved:</h3>
+    </div>
+    <div class="panel-body">
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </div>
+  </div>
 <% end %>
+<%= form_for @item, html: {class: "form-horizontal"} do |f| %>
+  <div class="row">
+    <div class="col-xs-8">
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= f.label :name %></label>
+        <div class="col-sm-5">
+          <%= f.text_field :name, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= f.label :description %></label>
+        <div class="col-sm-5">
+          <%= f.text_field :description, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= f.label :category_id %></label>
+        <div class="col-sm-5">
+          <%= f.number_field :category_id, :class => "form-control", :min => "2" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= f.label :price %></label>
+        <div class="col-sm-5">
+          <%= f.text_field :price, :class => "form-control" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label"><%= f.label :in_stock_now %></label>
+        <div class="col-sm-5">
+          <%= f.number_field :in_stock_now, :class => "form-control", :min => "-1" %>
+        </div>
+      </div>
+      <div class="form-group">
+          <%= f.submit "Save", :class =>"btn btn-success col-sm-offset-6 col-sm-2 btn-large"%>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= button_to "Back", items_path, :class => "btn btn-primary col-sm-1 col-sm-offset-0 btn-large", :method => :get %>
