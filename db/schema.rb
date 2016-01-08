@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107081935) do
+ActiveRecord::Schema.define(version: 20160108060732) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",             limit: 255
@@ -42,15 +42,23 @@ ActiveRecord::Schema.define(version: 20160107081935) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.date     "required_date"
-    t.integer  "created_by",    limit: 4
-    t.integer  "updated_by",    limit: 4
-    t.integer  "lock_version",  limit: 4,                  default: 0
-    t.datetime "created_at",                                           null: false
-    t.datetime "updated_at",                                           null: false
-    t.decimal  "order_total",               precision: 10, default: 0
-    t.string   "items",         limit: 255
+    t.integer  "user_id",          limit: 4,                     null: false
+    t.string   "delivery_address", limit: 255,                   null: false
+    t.string   "phone",            limit: 255,                   null: false
+    t.string   "items",            limit: 255,                   null: false
+    t.date     "required_date",                                  null: false
+    t.float    "delivery_cost",    limit: 24,  default: 0.0
+    t.string   "promo_code",       limit: 255
+    t.float    "order_total",      limit: 24,  default: 0.0
+    t.float    "coord_long",       limit: 24,  default: 105.85
+    t.float    "coord_lat",        limit: 24,  default: 21.0298
+    t.integer  "state",            limit: 4,   default: 0
+    t.integer  "user_delete",      limit: 4,   default: 0
+    t.integer  "created_by",       limit: 4
+    t.integer  "updated_by",       limit: 4
+    t.integer  "lock_version",     limit: 4,   default: 0
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "schools", force: :cascade do |t|
@@ -61,8 +69,11 @@ ActiveRecord::Schema.define(version: 20160107081935) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.string   "email",        limit: 255
+    t.integer  "account_type", limit: 4,   default: 0
+    t.string   "first_name",   limit: 255,             null: false
+    t.string   "last_name",    limit: 255,             null: false
+    t.string   "email",        limit: 255,             null: false
+    t.string   "password",     limit: 255,             null: false
     t.string   "phone",        limit: 255
     t.string   "address",      limit: 255
     t.integer  "created_by",   limit: 4
@@ -70,7 +81,6 @@ ActiveRecord::Schema.define(version: 20160107081935) do
     t.integer  "lock_version", limit: 4,   default: 0
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.integer  "account_type", limit: 4,   default: 0
   end
 
 end

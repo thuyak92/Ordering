@@ -3,6 +3,13 @@ class ItemsController < ApplicationController
 
 
   def index
+    @search = @items.search(params[:q])
+    if params[:q].present?
+      @items = @search.result(distinct: true).page(params[:page]).per(10)
+    else
+      @items = Item.none.page(params[:page])
+    end
+    # @items = @items.page(params[:page]).per(10)
   end
 
   def new
