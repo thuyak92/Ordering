@@ -7,19 +7,19 @@
     <table class="table">
       <tr>
         <th><%= Item.human_attribute_name(:name) %></th>
+        <th>Image</th>
         <th><%= Item.human_attribute_name(:description) %></th>
         <th><%= Item.human_attribute_name(:category_id) %></th>
         <th><%= Item.human_attribute_name(:price) %></th>
-        <th><%= Item.human_attribute_name(:in_stock_now) %></th>
       </tr>
       <% @items.each do |item| %>
         <tr>
           <td> <%= link_to item.name, item_path(item) %> </td>
+          <td> <%= image_tag(item.image_url) %> </td>
           <td> <%= item.description %> </td>
-          <td> <%= item.category_id %> </td>
+          <td> <%= item.category.name %> </td>
           <td> <%= item.price %> </td>
-          <td> <%= item.in_stock_now %> </td>
-          <td><%= button_to "Delete", item_path(item), :class => "btn btn-danger", :method => :delete %></td>
+          <td><%= button_to "Delete", item_path(item), :class => "btn btn-danger", :method => :delete, data: { confirm: 'Are you sure to delete this item?' } %></td>
         </tr>
       <% end %>
     </table>

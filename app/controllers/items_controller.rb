@@ -21,10 +21,8 @@ class ItemsController < ApplicationController
 
   def create
     if @item.save
-      Rails.logger.debug("save item success")
       redirect_to items_path
     else
-      Rails.logger.debug("save item failure")
       redirect_to new_item_path
     end
   end
@@ -57,7 +55,7 @@ class ItemsController < ApplicationController
 
   private
     def item_params
-      params.require(:item).permit(:name, :description, :category_id, :price, :in_stock_now)
+      params.require(:item).permit(:name, :description, :category_id, :price, :in_stock_now, :image_url, :has_image)
     end
 
 end

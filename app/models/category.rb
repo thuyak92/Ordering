@@ -4,10 +4,8 @@ class Category < ActiveRecord::Base
 
   has_many :item
 
-  def self.categories_name
-    arr = Category.where("id != ?", MAIN_CATEGORY).pluck(:name).to_a
-    Rails.logger.debug("====================== #{arr}")
-    return arr
+  def self.categories
+    return Category.where("id != ?", MAIN_CATEGORY)
   end
 
 end

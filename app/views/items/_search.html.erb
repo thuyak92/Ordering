@@ -6,7 +6,7 @@
     </div>
     <div class="col-xs-3">
       <label class="col-sm-3 control-label"><%= f.label :category_id %></label>
-      <%= f.select :category_id_eq, Category.categories_name, { :include_blank => Item.human_attribute_name(:category_id)}, :class => "form-control input-sm" %>
+      <%= f.select :category_id_eq, Category.categories.collect{|i|[i.name, i.id]}, { :include_blank => Item.human_attribute_name(:category_id)}, :class => "form-control input-sm" %>
     </div>
     <div class="col-xs-3">
       <label class="col-sm-3 control-label"><%= f.label :price %></label>
