@@ -2,10 +2,12 @@
   width:200px;
   float:left;
 }
+
 #main-columnR{
   width:1000px;
   float:right;
 }
+
 .form_label{
   float:left;
   height: 25px;
@@ -14,10 +16,20 @@
   background-color: #00ffff;
   border-radius: 15px 15px 15px 15px;
 }
+
 .form_value{
   margin-left: 200px;
   height: 40px;
 }
 .btn-left{
   float: left;
+}
+
+.highlight {
+  background-color: #ff4545;
+  border-color: 1px solid #967;
+}
+
+#btn-edit-all-item {
+  margin-left: 100px;
 }
