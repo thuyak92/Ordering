@@ -12,6 +12,7 @@
         <th><%= Item.human_attribute_name(:description) %></th>
         <th><%= Item.human_attribute_name(:category_id) %></th>
         <th><%= Item.human_attribute_name(:price) %></th>
+        <th></th>
       </tr>
 
       <tr>
@@ -22,18 +23,15 @@
           <button class="applyAll" data-type="1">Apply to all</button>
         </td>
         <td>
-          <select class="form-control input-sm" name="q[category_id_eq]" id="q_category_id_eq"><option value="">Category</option>
-            <option value="2">Burger</option>
-            <option selected="selected" value="3">Pizza</option>
-            <option value="4">Đồ ăn nhẹ</option>
-            <option value="5">Spagethy</option>
-            <option value="6">Đồ uống</option>
-            <option value="7">Salad</option>
+          <select style="width: 120px !important;" class="adFormMaster">
+            <% Category.categories.collect{|i| [ i.name, i.id ]}.each do |option| %>
+              <option value="<%= option[1] %>"><%= option[0] %></option>
+            <% end %>
           </select>
           <button class="applyAll" data-type="2">Apply to all</button>
         </td>
         <td>
-          <input type="text"></input>
+          <input type="number"></input>
           <button class="applyAll" data-type="1">Apply to all</button>
         </td>
         <td> </td>
@@ -41,12 +39,12 @@
 
       <% @items.each do |item| %>
         <tr>
-          <td> <%= link_to item.name, item_path(item) %> </td>
-          <td> <%= image_tag(item.image_url) %> </td>
-          <td><label><%= item.description %></label></td>
-          <td><label><%= item.category.name %></label></td>
-          <td><label><%= item.price %></label></td>
-          <td><%= button_to "Delete", item_path(item), :class => "btn btn-danger", :method => :delete, data: { confirm: 'Are you sure to delete this item?' } %></td>
+          <td width="10%"> <%= link_to item.name, item_path(item) %> </td>
+          <td width="10%"> <%= image_tag(item.image_url) %> </td>
+          <td width="40%"><label><%= item.description %></label></td>
+          <td width="20%"><label><%= item.category.name %></label></td>
+          <td width="10%"><label><%= item.price %></label></td>
+          <td width="10%"><%= button_to "Delete", item_path(item), :class => "btn btn-danger", :method => :delete, data: { confirm: 'Are you sure to delete this item?' } %></td>
         </tr>
       <% end %>
     </table>
